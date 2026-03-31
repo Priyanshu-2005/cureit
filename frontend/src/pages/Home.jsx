@@ -20,8 +20,19 @@ function Home() {
   const { theme, profile } = useCureitContext();
 
   const navigate = useNavigate();
-  const token = localStorage.getItem("sb-vakmfwtcbdeaigysjgch-auth-token");
-  const userData = token;
+  const [token, setToken] = useState(null);  // ✅ state instead of direct localStorage read
+
+useEffect(() => {
+  supabase.auth.getSession().then(({ data: { session } }) => {
+    setToken(session?.access_token ?? null);  // ✅ proper session fetch
+  });
+
+  const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    setToken(session?.access_token ?? null);  // ✅ reacts to login/logout
+  });
+
+  return () => subscription.unsubscribe();  // ✅ cleanup
+}, []);
   const [userInfo, setUserInfo] = useState({
     id: "",
     name: "",
