@@ -17,6 +17,7 @@ import ChatBot from "../components/ChatBot/ChatBot";
 // imprt useState
 
 function Home() {
+  console.log(import.meta.env);
   const { theme, profile } = useCureitContext();
 
   const navigate = useNavigate();
