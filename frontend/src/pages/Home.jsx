@@ -30,7 +30,6 @@ function Home() {
     role: " ",
     confirmed_at: "",
     last_sign_in_at: "",
-    phone: "",
   });
   // const user = useAuthContext();
   // useEffect(()=>{// console.log(user)},[user])
