@@ -3,7 +3,7 @@
 
 **Cureit** is a **smart and accessible** doctor appointment platform that **bridges healthcare gaps** for **underserved communities** by reducing wait times and streamlining scheduling. It helps patients **connect with doctors effortlessly** while enabling **efficient queue management** in hospitals and clinics. Powered by **Supabase**, Cureit ensures **secure authentication, real-time syncing, and seamless healthcare access**.
 
-🌐 **Deployed Project Link** -  [https://aryamagarwal.github.io/cureit](https://aryamagarwal.github.io/cureit)
+🌐 **Deployed Project Link** -  [https://priyanshu-2005.github.io/cureit](https://priyanshu-2005.github.io/cureit)
 
 **CureIt FeedBack Form** - [https://forms.gle/7jNscB3c7jUewsaX7](https://forms.gle/7jNscB3c7jUewsaX7)
 
