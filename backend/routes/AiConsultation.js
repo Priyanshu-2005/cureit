@@ -68,8 +68,9 @@ Patient says: "${prompt}"
   console.log("hit /consult");
 
   try {
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GOOGLE_GEMINI_API_KEY}`;
     // 1. Call Gemini AI
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite-latest:generateContent?key=${process.env.GOOGLE_GEMINI_API_KEY}`;
+    // const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${process.env.GOOGLE_GEMINI_API_KEY}`;
     const geminiResp = await fetch(geminiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
