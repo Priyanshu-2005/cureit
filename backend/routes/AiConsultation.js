@@ -27,6 +27,21 @@ async function synthesizeHinglish(text) {
   const merged = Buffer.concat(buffers);
   return merged.toString("base64");
 }
+router.get("/models", async (req, res) => {
+  try {
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models?key=${process.env.GOOGLE_GEMINI_API_KEY}`
+    );
+
+    const data = await response.json();
+    console.log("Available models:", data);
+
+    res.json(data);
+  } catch (err) {
+    console.error("Error fetching models:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
 
 router.post("/consult", async (req, res) => {
   const { prompt, voiceId = "JBFqnCBsd6RMkjVDRZzb" } = req.body;
@@ -54,7 +69,7 @@ Patient says: "${prompt}"
 
   try {
     // 1. Call Gemini AI
-    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${process.env.GOOGLE_GEMINI_API_KEY}`;
+    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite-latest:generateContent?key=${process.env.GOOGLE_GEMINI_API_KEY}`;
     const geminiResp = await fetch(geminiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
